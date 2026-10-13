@@ -1,5 +1,7 @@
 # FJC Civil Case Intelligence (Streamlit)
 
+**Live website:** [fjc-civil-case-intelligence.streamlit.app](https://fjc-civil-case-intelligence.streamlit.app/)
+
 Predicts how a U.S. federal civil case ends (Dismissed, Judgment, Settled, Statistical closing, Transferred) and how many days it takes, using models trained on the FJC Integrated Database (cv23 extract).
 
 The app shows the project's original dashboard (Overview, Classification, Regression, Clustering and Predict) unchanged inside a Streamlit component (`dashboard/`). Its data is served from bundled JSON files, and `bridge.js` sends prediction requests to Python in `streamlit_app.py`. An earlier native-Streamlit version of the pages is kept in `classic_pages/` but is not used.
