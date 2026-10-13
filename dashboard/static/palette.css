@@ -1,0 +1,16 @@
+/* Ivory, navy and muted gold. Separate tokens retain the responsive layout. */
+:root{color-scheme:light;--bg:#F5F5EF;--side:#1F2839;--panel:#FEFEFA;--raised:#ECECE4;--ink:#1F2839;--muted:#5F6671;--line:#DEDDD3;--accent:#846B43;--input:#F5F5EF}
+body.navy{color-scheme:dark;--bg:#1F2839;--side:#182130;--panel:#263245;--raised:#303D50;--ink:#F5F5EF;--muted:#BFC4CC;--line:#3B4657;--accent:#D0B88E;--input:#1F2839}
+aside{color:#F5F5EF;--ink:#F5F5EF;--muted:#C0C4CB;--line:#414959;--raised:#2D384B;--accent:#B69D74}
+.brand{color:#B69D74}.brand small{color:#CFD0CB}
+nav button.active{color:#E0CCAB;background:#B69D7419;border-color:#B69D7440}
+.side-card{background:linear-gradient(140deg,#B69D7419,transparent);border-color:#414959}
+.chip{border-color:#B69D7460;background:#B69D7412;color:var(--accent)}
+.primary,.light .primary{background:#B69D74;color:#1F2839}
+.winner:hover{border-color:#B69D74}.winner-strip{background:linear-gradient(90deg,#B69D7414,transparent)}
+.banner{background:radial-gradient(ellipse at 85% 40%,#B69D7424,transparent 70%),var(--panel)}
+input[type=range]{accent-color:#B69D74}
+.winner,.stat,.chart-card{box-shadow:0 5px 20px #1F283906}
+.mini .stat{animation:none}#live-stats strong{transition:color .15s}
+.chart-card{animation-duration:.3s}
+@media(prefers-reduced-motion:reduce){#live-stats strong{transition:none}}

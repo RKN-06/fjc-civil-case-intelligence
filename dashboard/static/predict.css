@@ -1,0 +1,24 @@
+/* Prediction studio; reuses the palette tokens from palette.css. */
+.p-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:25px 0 5px}
+.p-tabs button{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;color:var(--ink);cursor:pointer;font-size:14px;font-weight:600}
+.p-tabs button small{display:block;margin-top:6px;font-size:10px;font-weight:400;color:var(--muted)}
+.p-tabs button.active{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.p-model-stats{flex:1;min-width:280px;margin:0;grid-template-columns:repeat(2,1fr)}
+.p-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.p-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.p-card h3{margin:0;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);font-weight:600}
+.p-card select,.p-card input[type=number]{max-width:none;width:100%}
+.p-card input[type=number]{color:var(--ink);background:var(--input);padding:11px;border:1px solid var(--line);border-radius:6px;font-size:11px}
+.p-card .control small{font-size:10px;color:var(--muted);line-height:1.5}
+#p-circuit{color:var(--accent)}
+#p-diversity{display:flex;flex-direction:column;gap:16px}#p-diversity[hidden]{display:none}
+.p-switch{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink);cursor:pointer}
+.p-switch input{width:16px;height:16px;accent-color:#B69D74}
+.p-actions{display:flex;align-items:center;gap:18px;margin:22px 0 10px;flex-wrap:wrap}
+.p-actions .primary{font-size:13px;padding:15px 26px}
+.p-actions .primary:disabled{opacity:.6;cursor:progress;transform:none}
+.p-headline .stat:first-child strong{color:var(--accent)}
+.p-empty{padding:30px 22px}
+#p-result .chart-card .chart{min-height:260px}
+@media(max-width:900px){.p-grid,.p-tabs{grid-template-columns:1fr}.p-model-stats{min-width:0}}
+.full-score{font-size:15px!important;line-height:1.5}.full-strip{border-color:var(--accent)}tr.full-best td{color:var(--accent);font-weight:600}
