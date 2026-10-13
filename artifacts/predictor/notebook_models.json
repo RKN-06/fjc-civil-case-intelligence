@@ -1,0 +1,15 @@
+[
+ {
+  "id": "classification_notebook",
+  "name": "MLP Classifier (tuned, notebook)",
+  "path": "models/best_classifier.pkl",
+  "test": {
+   "accuracy": 0.6714901477832512,
+   "precision": 0.6687473878375901,
+   "recall": 0.6714901477832512,
+   "f1": 0.6611332236646407,
+   "roc_auc": 0.8591765381124759
+  },
+  "test_rows": 48720
+ }
+]

@@ -1,0 +1,49 @@
+{
+ "k": 3,
+ "source": "notebooks/executed/artifacts/kmeans_model.pkl",
+ "training_cases": 194879,
+ "profiles": [
+  {
+   "segment": 0,
+   "cases": 136334,
+   "share": 0.6995828180563324,
+   "median_days": 180.0,
+   "mean_days": 320.8519664940514,
+   "outcomes": {
+    "Dismissed": 0.4698021036571948,
+    "Judgment": 0.23728490325230683,
+    "Settled": 0.18296243050156233,
+    "Transferred": 0.08240790998577024,
+    "Statistical": 0.027542652603165754
+   }
+  },
+  {
+   "segment": 1,
+   "cases": 52008,
+   "share": 0.26687329060596576,
+   "median_days": 371.0,
+   "mean_days": 523.3309683125673,
+   "outcomes": {
+    "Dismissed": 0.4629864636209814,
+    "Settled": 0.32646900476849716,
+    "Judgment": 0.09181279803107215,
+    "Transferred": 0.08091062913397938,
+    "Statistical": 0.037821104445469926
+   }
+  },
+  {
+   "segment": 2,
+   "cases": 6537,
+   "share": 0.03354389133770186,
+   "median_days": 221.0,
+   "mean_days": 402.77160777114887,
+   "outcomes": {
+    "Dismissed": 0.5081841823466422,
+    "Judgment": 0.20728162765794708,
+    "Settled": 0.17775738106164907,
+    "Transferred": 0.07312222732140125,
+    "Statistical": 0.03365458161236041
+   }
+  }
+ ]
+}
