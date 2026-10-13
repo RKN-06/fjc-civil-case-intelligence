@@ -19,7 +19,7 @@ st.markdown("""<style>
   .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {background:#F5F5EF}
   .block-container, [data-testid="stMainBlockContainer"] {padding:0!important;max-width:none!important}
   [data-testid="stVerticalBlock"] {gap:0!important}
-  iframe[title$="fjc_dashboard"] {height:100vh!important;display:block;border:0}
+  iframe[title$="fjc_dashboard"] {display:block;border:0}
 </style>""", unsafe_allow_html=True)
 
 dashboard = components.declare_component('fjc_dashboard', path=str(HERE/'dashboard'))
@@ -50,7 +50,7 @@ def predict(body):
 
 
 answers = st.session_state.setdefault('answers', {})
-request = dashboard(responses=answers, key='fjc', default=None, height=900)
+request = dashboard(responses=answers, key='fjc', default=None)
 if request and request.get('id') and request['id'] not in answers:
     status, body = predict(request.get('body') or {})
     for old in list(answers)[:-4]:  # keep the payload small
