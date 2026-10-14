@@ -1,5 +1,5 @@
 {
- "created_utc": "2026-10-13T19:44:20.812737+00:00",
+ "created_utc": "2026-10-14T03:46:30.027213+00:00",
  "source": "notebooks/executed/artifacts",
  "training_rows": 194879,
  "test_rows": 48720,
@@ -94,6 +94,15 @@
     "f1": 0.4637459505516463,
     "roc_auc": 0.7575999174681162,
     "fit_seconds": 5.191993951797485
+   },
+   {
+    "name": "Single-Layer Perceptron",
+    "accuracy": 0.445012315270936,
+    "precision": 0.4284437040561407,
+    "recall": 0.445012315270936,
+    "f1": 0.42341625146619694,
+    "roc_auc": 0.6266558911267976,
+    "fit_seconds": 3.820302999999967
    }
   ],
   "best": "MLP Classifier",

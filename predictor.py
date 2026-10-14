@@ -179,6 +179,15 @@ def load_model(run_id, model_id):
     return joblib.load(path)
 
 
+def probabilities(model, X):
+    """Class probabilities; models without predict_proba (the perceptron) get a softmax of their scores."""
+    if hasattr(model, 'predict_proba'):
+        return model.predict_proba(X)
+    scores = np.atleast_2d(model.decision_function(X))
+    z = np.exp(scores - scores.max(axis=1, keepdims=True))
+    return z/z.sum(axis=1, keepdims=True)
+
+
 def _perturbations(raw):
     """One counterfactual per input group: that input reset to the typical case."""
     for key, label, _ in FIELDS:
@@ -205,7 +214,7 @@ def predict(task, run_id, models, chosen_id, raw):
     for m in models:
         model = load_model(run_id, m['id'])
         if task == 'classification':
-            proba = model.predict_proba(X[:1])[0]
+            proba = probabilities(model, X[:1])[0]
             classes = [str(c) for c in model.classes_]
             best = int(np.argmax(proba))
             rows.append(dict(id=m['id'], name=m['name'], prediction=classes[best], confidence=float(proba[best]),
@@ -219,7 +228,7 @@ def predict(task, run_id, models, chosen_id, raw):
         if task == 'classification':
             label = main['prediction']
             index = [str(c) for c in model.classes_].index(label)
-            others = model.predict_proba(X[1:])[:, index]
+            others = probabilities(model, X[1:])[:, index]
             base = main['probabilities'][label]
             effects = [dict(input=l, effect=float(base - o)) for (l, _), o in zip(extras, others)]
         else:
