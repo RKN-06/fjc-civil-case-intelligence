@@ -1,14 +1,14 @@
 [
  {
   "id": "classification_notebook",
-  "name": "MLP Classifier (notebook, full data)",
+  "name": "MLP Classifier (tuned, full data)",
   "path": "models/best_classifier.pkl",
   "test": {
-   "accuracy": 0.6632799671592775,
-   "precision": 0.6638640934546571,
-   "recall": 0.6632799671592775,
-   "f1": 0.6513842388190075,
-   "roc_auc": 0.8544093282767715
+   "accuracy": 0.6653530377668309,
+   "precision": 0.6617390986998231,
+   "recall": 0.6653530377668309,
+   "f1": 0.6523356916830575,
+   "roc_auc": 0.856501101826728
   },
   "test_rows": 48720,
   "layers": [

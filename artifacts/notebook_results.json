@@ -1,6 +1,6 @@
 {
- "created_utc": "2026-10-14T03:46:30.027213+00:00",
- "source": "notebooks/executed/artifacts",
+ "created_utc": "2026-10-16T04:35:19.446410+00:00",
+ "source": "data/processed",
  "training_rows": 194879,
  "test_rows": 48720,
  "classification": {
@@ -12,7 +12,7 @@
     "recall": 0.6632799671592775,
     "f1": 0.6513842388190075,
     "roc_auc": 0.8544093282767715,
-    "fit_seconds": 105.14930653572083
+    "fit_seconds": 111.33401608467102
    },
    {
     "name": "Bagging Classifier",
@@ -21,7 +21,7 @@
     "recall": 0.6329433497536946,
     "f1": 0.6409191385205893,
     "roc_auc": 0.8546225101076583,
-    "fit_seconds": 115.22455072402954
+    "fit_seconds": 168.7640471458435
    },
    {
     "name": "Random Forest Classifier",
@@ -30,7 +30,7 @@
     "recall": 0.6164408866995074,
     "f1": 0.6263165276082587,
     "roc_auc": 0.8577105874908967,
-    "fit_seconds": 50.94494009017944
+    "fit_seconds": 23.69292116165161
    },
    {
     "name": "Gradient Boosting Classifier",
@@ -39,7 +39,7 @@
     "recall": 0.6255336617405582,
     "f1": 0.6050905861900253,
     "roc_auc": 0.82619812564472,
-    "fit_seconds": 2734.705082178116
+    "fit_seconds": 1888.2846069335938
    },
    {
     "name": "Decision Tree Classifier",
@@ -48,7 +48,7 @@
     "recall": 0.5444991789819376,
     "f1": 0.5624157650907027,
     "roc_auc": 0.8021101993315762,
-    "fit_seconds": 19.93070650100708
+    "fit_seconds": 68.72007012367249
    },
    {
     "name": "KNN Classifier",
@@ -57,7 +57,7 @@
     "recall": 0.5711412151067323,
     "f1": 0.5580176517993961,
     "roc_auc": 0.7630420076127565,
-    "fit_seconds": 0.030704259872436523
+    "fit_seconds": 0.2838611602783203
    },
    {
     "name": "SVC",
@@ -66,7 +66,7 @@
     "recall": 0.5239942528735633,
     "f1": 0.53696629968073,
     "roc_auc": 0.7994675424738181,
-    "fit_seconds": 249.42976307868958
+    "fit_seconds": 194.80536484718323
    },
    {
     "name": "Naive Bayes (Gaussian)",
@@ -75,7 +75,7 @@
     "recall": 0.5017036124794746,
     "f1": 0.499741511399264,
     "roc_auc": 0.7189336854132348,
-    "fit_seconds": 0.6506266593933105
+    "fit_seconds": 2.616960048675537
    },
    {
     "name": "AdaBoost Classifier",
@@ -84,7 +84,7 @@
     "recall": 0.5449302134646963,
     "f1": 0.4979855777578692,
     "roc_auc": 0.7462022359833441,
-    "fit_seconds": 222.68781805038452
+    "fit_seconds": 167.92208290100098
    },
    {
     "name": "Logistic Regression",
@@ -93,7 +93,7 @@
     "recall": 0.4425492610837438,
     "f1": 0.4637459505516463,
     "roc_auc": 0.7575999174681162,
-    "fit_seconds": 5.191993951797485
+    "fit_seconds": 11.32366156578064
    },
    {
     "name": "Single-Layer Perceptron",
@@ -102,27 +102,74 @@
     "recall": 0.445012315270936,
     "f1": 0.42341625146619694,
     "roc_auc": 0.6266558911267976,
-    "fit_seconds": 3.820302999999967
+    "fit_seconds": 2.327256679534912
    }
   ],
-  "best": "MLP Classifier",
-  "selection": "Highest test weighted F1",
+  "tuned": [
+   {
+    "name": "MLP Classifier (Tuned)",
+    "accuracy": 0.6653530377668309,
+    "precision": 0.6617390986998231,
+    "recall": 0.6653530377668309,
+    "f1": 0.6523356916830575,
+    "roc_auc": 0.856501101826728,
+    "params": {
+     "max_iter": "300",
+     "learning_rate_init": "0.005",
+     "hidden_layer_sizes": "(64, 32)",
+     "batch_size": "auto",
+     "alpha": "0.01",
+     "activation": "tanh"
+    }
+   },
+   {
+    "name": "Bagging Classifier (Tuned)",
+    "accuracy": 0.6317528735632184,
+    "precision": 0.6683844215981168,
+    "recall": 0.6317528735632184,
+    "f1": 0.6391959454721026,
+    "roc_auc": 0.8528610925224142,
+    "params": {
+     "n_estimators": "30",
+     "max_samples": "0.6",
+     "estimator__max_depth": "15"
+    }
+   }
+  ],
+  "best": "MLP Classifier (Tuned)",
+  "network": {
+   "model": "MLP Classifier (Tuned)",
+   "layers": [
+    37,
+    64,
+    32,
+    5
+   ],
+   "activation": "tanh",
+   "solver": "adam",
+   "epochs": 42
+  },
+  "selection": "Highest test weighted F1, then tuning",
   "tuning": {
    "model": "MLP Classifier",
-   "params": {},
+   "params": {
+    "max_iter": 300,
+    "learning_rate_init": 0.005,
+    "hidden_layer_sizes": [
+     64,
+     32
+    ],
+    "batch_size": "auto",
+    "alpha": 0.01,
+    "activation": "tanh"
+   },
    "before": {
     "accuracy": 0.6633,
-    "f1": 0.6514,
-    "precision": 0.6639,
-    "recall": 0.6633,
-    "roc_auc": 0.8544
+    "f1": 0.6514
    },
    "after": {
-    "accuracy": 0.6633,
-    "f1": 0.6514,
-    "precision": 0.6639,
-    "recall": 0.6633,
-    "roc_auc": 0.8544
+    "accuracy": 0.6654,
+    "f1": 0.6523
    }
   }
  },
@@ -133,7 +180,7 @@
     "r2": 0.43917948724343425,
     "rmse": 319.2199921262492,
     "mae": 212.4398879665908,
-    "fit_seconds": 55.00250053405762
+    "fit_seconds": 64.69284296035767
    },
    {
     "name": "Polynomial Regression",
@@ -147,56 +194,56 @@
     "r2": 0.353664077960279,
     "rmse": 342.6946183639997,
     "mae": 228.585472566273,
-    "fit_seconds": 8.515891790390015
+    "fit_seconds": 9.63263988494873
    },
    {
     "name": "Gradient Boosting Regressor",
     "r2": 0.33911874860919056,
     "rmse": 346.52921377536956,
     "mae": 238.93206800489008,
-    "fit_seconds": 456.5493264198303
+    "fit_seconds": 358.0310115814209
    },
    {
     "name": "KNN Regressor",
     "r2": 0.2727886934332865,
     "rmse": 363.50337608315357,
     "mae": 244.3511063218391,
-    "fit_seconds": 4.324764251708984
+    "fit_seconds": 1.2407598495483398
    },
    {
     "name": "Ridge Regression",
     "r2": 0.19131756085855323,
     "rmse": 383.324999378108,
     "mae": 267.3819331709584,
-    "fit_seconds": 0.19869184494018555
+    "fit_seconds": 0.09784865379333496
    },
    {
     "name": "Linear Regression",
     "r2": 0.19131712543978707,
     "rmse": 383.3251025749055,
     "mae": 267.3818610278568,
-    "fit_seconds": 0.7319056987762451
+    "fit_seconds": 0.361004114151001
    },
    {
     "name": "Lasso Regression",
     "r2": 0.19004357069479028,
     "rmse": 383.6268237223396,
     "mae": 267.92808515148755,
-    "fit_seconds": 0.27336955070495605
+    "fit_seconds": 0.12103509902954102
    },
    {
     "name": "ElasticNet Regression",
     "r2": 0.10581707791104811,
     "rmse": 403.08006786144585,
     "mae": 291.06126090243566,
-    "fit_seconds": 0.2416372299194336
+    "fit_seconds": 0.10716891288757324
    },
    {
     "name": "SVR",
     "r2": 0.002216256981193987,
     "rmse": 425.7908743538123,
     "mae": 261.4312635874079,
-    "fit_seconds": 358.72724866867065
+    "fit_seconds": 99.34871172904968
    }
   ],
   "best": "Random Forest Regressor (Tuned)",
@@ -204,7 +251,7 @@
    "name": "Random Forest Regressor (Tuned)",
    "r2": 0.45291341729874735,
    "rmse": 315.2870763898906,
-   "mae": 208.2462768032585
+   "mae": 208.24627680325852
   },
   "selection": "Highest test R\u00b2, then tuning"
  },
